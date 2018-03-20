@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Bare - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+        body {
+            padding-top: 54px;
+        }
+        @media (min-width: 992px) {
+            body {
+                padding-top: 56px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Crypto Name Service</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active home">
+                    <a class="nav-link" href="#">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item api">
+                    <a class="nav-link" href="#api">API</a>
+                </li>
+                <li class="nav-item about">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item contact">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <form>
+                        <input type="text" class="form-control ml-2" name="search" placeholder="Search Names...">
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<!-- Home Content -->
+<div class="container home page">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1 class="mt-5">Crypto Name Service</h1>
+            <p class="lead">Because no one wants to remember addresses.</p>
+            <h3>How does it work?</h3>
+            <p>
+                You can request to map a name to your address. After that you have one day to send any amount to a specified address.
+                When the transaction arrives your name will be mapped to your address. Each name can only exist once.
+                For using the Rest API see <a href="api.html">here</a>.
+
+            </p>
+            <hr>
+            <div class="content">
+                <h2>Create new mapping:</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Wanted Name:</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Your Address:</label>
+                        <input type="text" class="form-control" id="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="coin">Select Coin:</label>
+                        <select class="form-control" id="coin">
+                            <option>Nano</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- API content -->
+<div class="container api page">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1 class="mt-5">API</h1>
+            <p class="lead">Because no one wants to remember addresses.</p>
+            <h3>How does it work?</h3>
+            <p>
+                You can request to map a name to your address. After that you have one day to send any amount to a specified address.
+                When the transaction arrives your name will be mapped to your address. Each name can only exist once.
+                For using the Rest API see <a href="api.html">here</a>.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/cns.js"></script>
+
+</body>
+
+</html>
