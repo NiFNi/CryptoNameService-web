@@ -1,1 +1,16 @@
 
+.footer-line-col {
+    border-right: 10px dashed black;
+}
+
+.footer {
+    color: #999C9F;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.foot-link {
+    color: #999C9F;
+    text-decoration: none;
+}
