@@ -82,6 +82,20 @@ function createRequest() {
     let coin = e.options[e.selectedIndex].value;
     console.log(name + address + coin);
     let xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+        if (this.readyState !== 4) return;
+
+        if (this.status === 200) {
+            let data = JSON.parse(this.responseText);
+            console.log(data)
+
+            // we get the returned data
+        }
+
+        // end of state change: it can be after some time (async)
+    };
+
     xhr.open("POST", "http://cns.li:8009/api/create/" + coin, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     let result = xhr.send(JSON.stringify({
