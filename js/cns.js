@@ -81,7 +81,7 @@ function createRequest() {
     let e = document.getElementById("coin");
     let coin = e.options[e.selectedIndex].value;
     console.log(name + address + coin);
-    let xhr = new XMLHttpRequest();
+    let xhr = createCORSRequest("POST", "http://cns.li/api/create/" + coin);
 
     xhr.onreadystatechange = function () {
         if (this.readyState !== 4) return;
@@ -95,12 +95,45 @@ function createRequest() {
 
         // end of state change: it can be after some time (async)
     };
-
-    xhr.open("POST", "http://cns.li:8009/api/create/" + coin, true);
     xhr.setRequestHeader('Content-Type', 'application/json');
-    let result = xhr.send(JSON.stringify({
+    if (!xhr) {
+        alert('CORS not supported');
+        return;
+    }
+
+    // Response handlers.
+    xhr.onload = function() {
+        let text = xhr.responseText;
+        alert('Response from CORS request to ' + ': ' + text);
+    };
+
+    xhr.onerror = function() {
+        alert('Woops, there was an error making the request.');
+    };
+    xhr.onloadend = function () {
+        alert("loadend")
+    };
+
+    xhr.send(JSON.stringify({
         address: address,
         name: name
     }));
-    console.log(result);
+}
+
+
+// Create the XHR object.
+function createCORSRequest(method, url) {
+    let xhr = new XMLHttpRequest();
+    if ("withCredentials" in xhr) {
+        // XHR for Chrome/Firefox/Opera/Safari.
+        xhr.open(method, url, true);
+    } else if (typeof XDomainRequest !== "undefined") {
+        // XDomainRequest for IE.
+        xhr = new XDomainRequest();
+        xhr.open(method, url);
+    } else {
+        // CORS not supported.
+        xhr = null;
+    }
+    return xhr;
 }
