@@ -1,5 +1,5 @@
 $(function () {
-    var pages = $('.page');
+    let pages = $('.page');
     pages.hide();
 
     $(window).on('hashchange', function(){
@@ -15,27 +15,27 @@ $(function () {
         // This function decides what type of page to show
         // depending on the current url hash value.
         // Get the keyword from the url.
-        var temp = url.split('/')[0];
+        let temp = url.split('/')[0];
 
         // Hide whatever page is currently shown.
         $('.page').hide();
 
-        var map = {
+        let map = {
 
             // The Homepage.
-            '': function() {
+            '': function () {
 
                 renderPage('home');
             },
 
             // Single Products page.
-            '#api': function() {
+            '#api': function () {
 
                 // Get the index of which product we want to show and call the appropriate function.
                 renderPage('api');
             },
             // Single Products page.
-            '#home': function() {
+            '#home': function () {
 
                 // Get the index of which product we want to show and call the appropriate function.
                 renderPage('home');
@@ -55,19 +55,38 @@ $(function () {
     }
 
     function renderPage(pageClass){
-        var page = $('.' + pageClass + ".page");
-        var pages = $('.page');
+        let page = $('.' + pageClass + ".page");
+        let pages = $('.page');
 
-        var navitem = $('.nav-item' + '.' + pageClass);
-        var navitems = $('.nav-item');
+        let navitem = $('.nav-item' + '.' + pageClass);
+        let navitems = $('.nav-item');
         navitems.removeClass('active');
         navitem.addClass('active');
         pages.hide();
         page.show();
     }
     function renderErrorPage(){
-        var page = $('.error');
+        let page = $('.error');
         page.show();
     }
 
 });
+
+function createRequest() {
+    console.log("wooooo");
+    let name = document.getElementById("name").value;
+    console.log(name);
+    let address = document.getElementById("address").value;
+    console.log(address);
+    let e = document.getElementById("coin");
+    let coin = e.options[e.selectedIndex].value;
+    console.log(name + address + coin);
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://cns.li:8009/api/create/" + coin, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    let result = xhr.send(JSON.stringify({
+        address: address,
+        name: name
+    }));
+    console.log(result);
+}
